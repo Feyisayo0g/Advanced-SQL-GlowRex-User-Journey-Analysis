@@ -25,7 +25,6 @@ This analyzes the user's first journey
 - Final Aggregated Metrics
 The aggregated metrics provide a weekly overview of user behavior and service efficiency.
 
-
 ### Results
 Key Metrics:
 - Users Signed Up Each Week: Varied between 11 and 142.
