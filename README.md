@@ -24,8 +24,8 @@ This analyzes the user's first journey
 
 - Final Aggregated Metrics
 The aggregated metrics provide a weekly overview of user behavior and service efficiency.
+![First Aggregated Metrics View](![Final Aggregated Metrics View](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/Screenshot%202024-05-21%20at%2001.41.44.png)
 
-### Results
 Key Metrics:
 - Users Signed Up Each Week: Varied between 11 and 142.
 - Average Days to First Appointment: Ranged from 25 to 49.88 days.
