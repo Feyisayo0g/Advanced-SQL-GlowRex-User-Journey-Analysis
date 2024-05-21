@@ -2,7 +2,7 @@
 A Comprehensive Report on User Engagement and Operational Efficiency
 
 ### Introduction
-HealthTech Company, a leader in dermatological care, offers personalized skincare through telehealth appointments and quarterly product deliveries. The goal of this project is to analyze the user journey from sign-up to their first appointment and first Rx order, identifying key metrics and potential operational delays. This analysis will help the healthtech company improve user engagement, enhance service efficiency, and ultimately increase revenue by providing actionable insights into user behavior.
+GlowRex, a leader in dermatological care, offers personalized skincare through telehealth appointments and quarterly product deliveries. The goal of this project is to analyze the user journey from sign-up to their first appointment and first Rx order, identifying key metrics and potential operational delays. This analysis will help GlowRex improve user engagement, enhance service efficiency, and ultimately increase revenue by providing actionable insights into user behavior.
 
 ### Methodology
 - Data Collection: Data was collected from the SQLII database, RAW_DATA schema, which includes the users, appointments, and rx_orders tables.
@@ -12,63 +12,20 @@ HealthTech Company, a leader in dermatological care, offers personalized skincar
 - Rationale: The final report structure was designed to provide comprehensive insights into user behavior and service efficiency. By focusing on key milestones in the user journey, GlowRex can identify and address potential delays or inefficiencies, improving overall user satisfaction and retention.
 
 ### Data Analysis
-- User Signup and Appointment Analysis:
-  ``` sql
-  # CTE definition
-  WITH extracted_users AS (
-    SELECT 
-        user_id,
-        created_at::date AS signup_date,
-        DATE_TRUNC('week', created_at)::date AS signup_week
-    FROM 
-        SQLII.RAW_DATA.USERS
-),
-```
-``` sql
-with_appts AS (
-    SELECT 
-        ap.user_id,
-        MIN(ap.appointment_date)::date AS first_appointment_date,
-        DATEDIFF(day, eu.signup_date, MIN(ap.appointment_date)) AS first_appointment_tat
-    FROM 
-        SQLII.RAW_DATA.APPOINTMENTS ap
-    JOIN 
-        extracted_users eu ON eu.user_id = ap.user_id
-    WHERE 
-        ap.appointment_status = 'Completed'
-    GROUP BY 
-        ap.user_id, eu.signup_date
-)
-```
-- First Rx Order Analysis:
-``` sql
-#CTE definition
-WITH first_orders AS (
-    SELECT 
-        fo.user_id,
-        MIN(fo.transaction_date)::date AS first_rx_order_date,
-        MIN(fo.order_number) AS first_rx_order_number,
-        SUM(fo.item_amount) AS first_order_value,
-        DATEDIFF(day, wa.first_appointment_date, MIN(fo.transaction_date)) AS first_rx_order_tat
-    FROM 
-        SQLII.RAW_DATA.RX_ORDERS fo
-    JOIN 
-        with_appts wa ON wa.user_id = fo.user_id
-    GROUP BY 
-        fo.user_id, wa.first_appointment_date
-)
-```
-- Final Aggregated Metrics:
-  ``` sql
-  SELECT 
-    signup_week, 
-    COUNT(user_id) AS users_signed_up,
-    ROUND(AVG(first_appointment_tat), 2) AS avg_days_to_first_appointment,
-    ROUND(AVG(first_rx_order_tat), 2) AS avg_days_to_first_rx_order,
-    ROUND(COUNT(first_appointment_date) * 100.0 / COUNT(user_id), 2) AS pct_users_with_appointment,
-    ROUND(COUNT(first_rx_order_number) * 100.0 / COUNT(user_id), 2) AS pct_users_with_rx_order,
-    ROUND(AVG(first_order_value), 2) AS avg_first_order_value
-  ```
+- User Signup and Appointment Analysis
+This section analyzes the time taken from user sign-up to their first appointment.
+
+- First Rx Order Analysis
+Here we analyze the time taken from the first appointment to the first Rx order.
+
+- First User Journey
+This analyzes the user's first journey
+
+
+
+- Final Aggregated Metrics
+The aggregated metrics provide a weekly overview of user behavior and service efficiency.
+
 ### Results
 Key Metrics:
 - Users Signed Up Each Week: Varied between 11 and 142.
