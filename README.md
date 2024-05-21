@@ -20,11 +20,11 @@ Here we analyze the time taken from the first appointment to the first Rx order.
 
 - First User Journey
 This analyzes the user's first journey
-
-
+![First User Journey View](![First User Journey View](https://github.com/yourusername/HealthTech-Company-User-Journey-Analysis/blob/main/path/to/first_user_journey_view.png)
 
 - Final Aggregated Metrics
 The aggregated metrics provide a weekly overview of user behavior and service efficiency.
+
 
 ### Results
 Key Metrics:
