@@ -1,22 +1,40 @@
-# HealthTech-Company-User-Journey-Analysis
+# Glowrex-User-Journey-Analysis
 A Comprehensive Report on User Engagement and Operational Efficiency
 
 ### Introduction
-GlowRex, a leader in dermatological care, offers personalized skincare through telehealth appointments and quarterly product deliveries. The goal of this project is to analyze the user journey from sign-up to their first appointment and first Rx order, identifying key metrics and potential operational delays. This analysis will help GlowRex improve user engagement, enhance service efficiency, and ultimately increase revenue by providing actionable insights into user behavior.
+GlowRex stands at the forefront of dermatological care by offering a service designed to enhance users' skincare routines with expert guidance. Upon registering for a GlowRex membership, individuals embark on a personalized skincare journey, beginning with an initial telehealth appointment scheduled with a certified dermatologist. This allows the dermatologist to tailor a skincare regimen specifically to the user's unique needs, recommending specialized products. Following this personalized recommendation, users purchase the suggested products, which are then conveniently delivered to them on a quarterly basis for the rest of their membership period. This structured approach ensures that users continuously receive professional dermatological advice and high-quality skincare products, creating sustained skin health improvement.
+
+### Project Objective
+The project aims to provide two reports:
+
+- Funnel report (first_user_journey): This report tracks each step in the user journey, from sign-up to the first appointment, from the first appointment to the first order, the total value of that first order, and the turnaround time between each step.
+![First User Journey View](![First User Journey View](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/Screenshot%202024-05-21%20at%2001.40.56.png)
+
+- Weekly statistics report (first_user_journey_weekly): This report includes average turnaround times between each step and the total number of users signed up per week.
+
+### Importance of the Final Report
+By analyzing weekly statistics, GlowRex can identify delays or inefficiencies in the new user sign-up journey and investigate whether these are correlated with lower revenue. For example, the company can determine if a longer turnaround time to schedule an appointment correlates with a lower first order value. These insights will enable GlowRex to improve user engagement and increase revenue.
 
 ### Methodology
-- Data Collection: Data was collected from the SQLII database, RAW_DATA schema, which includes the users, appointments, and rx_orders tables.
-- Data Cleaning: Removed invalid records (e.g., null user_id).
-- Deduplication: Ensured only the latest status for each appointment and identified the first completed appointment and first Rx order for each user.
-- Metrics Calculation: Calculated key metrics such as average time to first appointment, average time to first Rx order, and percentages of users completing each step.
-- Rationale: The final report structure was designed to provide comprehensive insights into user behavior and service efficiency. By focusing on key milestones in the user journey, GlowRex can identify and address potential delays or inefficiencies, improving overall user satisfaction and retention.
+#### Data Collection
+Data was collected from three primary sources within the GlowRex snowflake database:
+- Users: Information on user registrations and sign-up dates.
+- Appointments: Records of telehealth appointments, including appointment dates, creation dates, and statuses.
+- Rx Orders: Data on product purchases, including transaction dates, order numbers, and item amounts.
+#### Analysis
+The analysis was conducted using SQL queries to transform and aggregate the data. The process involved the following steps:
+- Data Extraction and Cleaning: Extract user, appointment, and order data, ensuring data integrity by removing invalid records.
+- De-duplication: Rank and filter appointment data to retain only the latest status for each appointment.
+- First Completed Appointment: Identify the earliest completed appointment for each user.
+- First Prescription Order: Determine the first prescription order for each user after their first completed appointment, using subqueries to avoid window functions.
 
-### Data Analysis
-- User Signup and Appointment Analysis
-This section analyzes the time taken from user sign-up to their first appointment.
-
-- First Rx Order Analysis
-Here we analyze the time taken from the first appointment to the first Rx order.
+### Results
+The analysis yielded the following key metrics and insights:
+- Average Days to First Appointment: The average number of days from user signup to the first appointment.
+- Average Days to First Rx Order: The average number of days from the first appointment to the first prescription order.
+- Percentage of Users with Appointment: The percentage of users who completed at least one appointment.
+- Percentage of Users with Rx Order: The percentage of users who placed at least one prescription order.
+- Average First Order Value: The average value of the first prescription order.
 
 - First User Journey
 This analyzes the user's first journey
@@ -26,28 +44,11 @@ This analyzes the user's first journey
 The aggregated metrics provide a weekly overview of user behavior and service efficiency.
 ![First Aggregated Metrics View](![Final Aggregated Metrics View](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/Screenshot%202024-05-21%20at%2001.41.44.png)
 
-Key Metrics:
-- Users Signed Up Each Week: Varied between 11 and 142.
-- Average Days to First Appointment: Ranged from 25 to 49.88 days.
-- Average Days to First Rx Order: Consistently between 4.26 and 11.07 days.
-- Percentage of Users with Appointments: High, between 89.29% and 100%.
-- Percentage of Users with Rx Orders: Between 69.64% and 90.63%.
-- Average First Order Value: Ranged from $243.44 to $415.89.
-  
-### Notable Trends:
-- Shorter wait times for appointments correlated with higher first order values.
-- Weeks with the quickest access to appointments saw higher user engagement and spending.
+### Conclusion and Recommendations
+Based on the analysis, the following recommendations are made:
+- Reduce Appointment Scheduling Delays: Implement measures to reduce the time between user signup and the first appointment, such as automated reminders and streamlined scheduling processes.
+- Improve Engagement for No-Show Users: Develop strategies to re-engage users who missed their appointments, potentially through follow-up communications or incentives.
+- Monitor Weekly Trends: Continuously monitor the weekly statistics report to identify and address any emerging delays or inefficiencies promptly.
+- Enhance First Appointment Experience: Ensure that the first appointment is a positive and informative experience, encouraging users to follow through with product purchases.
 
-### Conclusion
-There is a clear correlation between shorter wait times for appointments and higher average first order values. Users are more likely to make higher-value purchases when they experience prompt appointments.
-
-### Recommendations:
-- Optimize Appointment Scheduling: Implement strategies to reduce appointment wait times, such as expanding availability and using automated scheduling.
-- Enhance Follow-Up: Strengthen follow-up communications to maintain engagement and encourage order placement.
-- Monitor and Adjust: Continuously monitor key metrics to quickly identify and address any operational inefficiencies.
-- Improve Perceived Value: Emphasize the benefits of quick appointments and effective treatments in marketing to attract and retain users.
-
-
-  
-
-
+By implementing these recommendations, GlowRex can enhance user engagement, improve the overall user experience, and increase revenue through higher first order values.
