@@ -8,10 +8,10 @@ GlowRex stands at the forefront of dermatological care by offering a service des
 The project aims to provide two reports:
 
 - Funnel report (first_user_journey): This report tracks each step in the user journey, from sign-up to the first appointment, from the first appointment to the first order, the total value of that first order, and the turnaround time between each step.
-![First User Journey Table](![First User Journey Table](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/first_user_journey_weekly.png)
+![First User Journey Table](![First User Journey Table](https://github.com/Feyisayo0g/HealthTech-Company-User-Journey-Analysis/blob/main/first_user_journey.png)
 first_user_journey.png
 - Weekly statistics report (first_user_journey_weekly): This report includes average turnaround times between each step and the total number of users signed up per week.
-  ![First User Journey Table](![First User Journey Table](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/first_user_journey_weekly.png)
+  ![First User Journey Table](![First User Journey Table](https://github.com/Feyisayo0g/HealthTech-Company-User-Journey-Analysis/blob/main/first_user_journey_weekly.png)
 
 ### Importance of the Final Report
 By analyzing weekly statistics, GlowRex can identify delays or inefficiencies in the new user sign-up journey and investigate whether these are correlated with lower revenue. For example, the company can determine if a longer turnaround time to schedule an appointment correlates with a lower first order value. These insights will enable GlowRex to improve user engagement and increase revenue.
