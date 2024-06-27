@@ -37,14 +37,6 @@ The analysis yielded the following key metrics and insights:
 - Percentage of Users with Rx Order: The percentage of users who placed at least one prescription order.
 - Average First Order Value: The average value of the first prescription order.
 
-- First User Journey
-This analyzes the user's first journey
-![First User Journey View](![First User Journey View](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/Screenshot%202024-05-21%20at%2001.40.56.png)
-
-- Final Aggregated Metrics
-The aggregated metrics provide a weekly overview of user behavior and service efficiency.
-![First Aggregated Metrics View](![Final Aggregated Metrics View](https://github.com/Feyisayo0/HealthTech-Company-User-Journey-Analysis/blob/main/Screenshot%202024-05-21%20at%2001.41.44.png)
-
 ### Conclusion and Recommendations
 Based on the analysis, the following recommendations are made:
 - Reduce Appointment Scheduling Delays: Implement measures to reduce the time between user signup and the first appointment, such as automated reminders and streamlined scheduling processes.
